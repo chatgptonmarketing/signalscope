@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="th"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;📈 SignalScope - Stock Scanner&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>:root{--primary:#3B82F6;--success:#10B981;--danger:#EF4444;--bg:#0F172A;--bg-card:#1E293B;--text:#F1F5F9;--text-muted:#94A3B8}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>*{margin:0;padding:0;box-sizing:border-box}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;background:var(--bg-card);border-bottom:1px solid #334155}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.logo{display:flex;align-items:center;gap:12px}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.logo h1{font-size:24px;background:linear-gradient(135deg,#3B82F6,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.badge{background:linear-gradient(135deg,var(--primary),#8B5CF6);color:white;font-size:10px;padding:4px 8px;border-radius:4px}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.nav{display:flex;gap:8px}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.nav-btn{background:transparent;border:none;color:var(--text-muted);padding:10px 16px;border-radius:12px;cursor:pointer;font-weight:500}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.nav-btn.active{background:var(--primary);color:white}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.main{padding:24px;max-width:1200px;margin:0 auto}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tab-content{display:none}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tab-content.active{display:block;animation:fadeIn 0.3s}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;background:var(--bg-card);padding:20px;border-radius:12px;margin-bottom:24px}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.filter-group{display:flex;flex-direction:column;gap:8px}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.filter-group label{font-size:12px;color:var(--text-muted);text-transform:uppercase;font-weight:600}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>select,input{background:#0F172A;border:1px solid #334155;color:var(--text);padding:10px 12px;border-radius:8px}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary{background:var(--primary);color:white;padding:12px 24px;border-radius:8px;border:none;font-weight:600;cursor:pointer}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.results-section{background:var(--bg-card);border-radius:12px}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.results-header{display:flex;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #334155}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stock-card{display:grid;grid-template-columns:auto 1fr auto auto;padding:16px 20px;border-bottom:1px solid #334155;cursor:pointer;gap:20px}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stock-card:hover{background:#334155}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.signal-dot{width:12px;height:12px;border-radius:50%}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.signal-dot.buy{background:var(--success);box-shadow:0 0 10px var(--success)}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.signal-badge{padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.signal-badge.buy{background:rgba(16,185,129,0.2);color:var(--success)}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.positive{color:var(--success)}.negative{color:var(--danger)}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.empty-state{text-align:center;padding:60px;color:var(--text-muted)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="logo"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span style="font-size:28px"&gt;📡&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;SignalScope&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="badge"&gt;PRO&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;nav class="nav"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="nav-btn active" onclick="switchTab('screener')"&gt;🔍 Screener&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="nav-btn" onclick="switchTab('watchlist')"&gt;📋 Watchlist&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main class="main"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="screener" class="tab-content active"&gt;</p>
+<p class="p1">&lt;div style="margin-bottom:24px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 style="font-size:24px;margin-bottom:8px"&gt;🔍 Stock Screener&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p style="color:var(--text-muted)"&gt;ค้นหาหุ้นที่มีสัญญาณซื้อจาก Technical Indicators&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="filters"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="filter-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label&gt;Market&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;select id="marketFilter"&gt;&lt;option value="all"&gt;All Markets&lt;/option&gt;&lt;option value="US"&gt;🇺🇸 US&lt;/option&gt;&lt;option value="TH"&gt;🇹🇭 TH&lt;/option&gt;&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="filter-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;label&gt;Min Signal Strength&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;select id="strengthFilter"&gt;&lt;option value="0"&gt;Any&lt;/option&gt;&lt;option value="60" selected&gt;60%+&lt;/option&gt;&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="btn-primary" onclick="runScan()"&gt;🔍 Start Scan&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="results-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="results-header"&gt;&lt;h3&gt;📊 Scan Results&lt;/h3&gt;&lt;span id="resultCount"&gt;Click Start Scan&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="resultsList" class="results-list"&gt;&lt;div class="empty-state"&gt;&lt;span style="font-size:48px"&gt;🔍&lt;/span&gt;&lt;p&gt;Click "Start Scan" to find stocks&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="watchlist" class="tab-content"&gt;&lt;div class="empty-state"&gt;&lt;span style="font-size:48px"&gt;📋&lt;/span&gt;&lt;p&gt;Your watchlist is empty&lt;/p&gt;&lt;/div&gt;&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const stocks=[{s:'AAPL',n:'Apple Inc.',p:150.25,c:2.5},{s:'MSFT',n:'Microsoft',p:380.50,c:1.2},{s:'TSLA',n:'Tesla',p:200.45,c:-2.3},{s:'NVDA',n:'NVIDIA',p:480.20,c:5.2},{s:'PTT',n:'PTT Public',p:35.50,c:1.5,m:'TH'},{s:'SCB',n:'SCB Bank',p:125.00,c:0.8,m:'TH'}];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function switchTab(t){document.querySelectorAll('.tab-content').forEach(c=&gt;c.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=&gt;b.classList.remove('active'));document.getElementById(t).classList.add('active');event.target.classList.add('active')}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function calcRSI(prices){let gains=0,losses=0;for(let i=1;i&lt;15;i++){let ch=prices[i]-prices[i-1];if(ch&gt;0)gains+=ch;else losses-=ch}if(losses===0)return 100;let rs=(gains/14)/(losses/14);return 100-(100/(1+rs))}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function analyze(stock){let prices=[stock.p];for(let i=0;i&lt;30;i++)prices.push(prices[prices.length-1]*((Math.random()-0.48)*0.04+1));let rsi=calcRSI(prices.slice(-15));let score=(rsi&lt;30?40:0)+(Math.random()&gt;0.5?30:0)+(stock.p&gt;prices[prices.length-5]?30:0);return{...stock,rsi:rsi.toFixed(2),score:score,signal:score&gt;=60?'buy':'neutral',sl:(stock.p*0.95).toFixed(2),tp:(stock.p*1.1).toFixed(2)}}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function runScan(){let r=stocks.map(analyze).filter(s=&gt;s.score&gt;=60).sort((a,b)=&gt;b.score-a.score);document.getElementById('resultCount').textContent=r.length+' stocks found';document.getElementById('resultsList').innerHTML=r.length?r.map(s=&gt;`&lt;div class="stock-card"&gt;&lt;div class="signal-dot ${s.signal}"&gt;&lt;/div&gt;&lt;div&gt;&lt;h4&gt;${s.s}&lt;/h4&gt;&lt;span style="color:var(--text-muted);font-size:12px"&gt;${s.n}&lt;/span&gt;&lt;/div&gt;&lt;div style="text-align:right"&gt;&lt;div style="font-weight:600"&gt;$${s.p.toFixed(2)}&lt;/div&gt;&lt;div class="${s.c&gt;=0?'positive':'negative'}"&gt;${s.c&gt;=0?'+':''}${s.c}%&lt;/div&gt;&lt;/div&gt;&lt;div class="signal-badge ${s.signal}"&gt;${s.signal==='buy'?'🟢 BUY':'⚪ HOLD'}&lt;/div&gt;&lt;/div&gt;`).join(''):'&lt;div class="empty-state"&gt;&lt;p&gt;No stocks match criteria&lt;/p&gt;&lt;/div&gt;'}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
